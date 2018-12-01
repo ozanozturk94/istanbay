@@ -25,6 +25,7 @@
     </style>
 </head>
 <body>
+<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 
 <div id="map"></div>
 
@@ -49,7 +50,7 @@
         customers.forEach(function(customer) {
                 var location = {lat : customer['lat'], lng:customer['lng']};
                 var markerX = new google.maps.Marker({
-                    title : customer['title'],
+                    title : customer['name'],
                     position : location,
                     map: map
             })
@@ -67,7 +68,7 @@
             location.href = 'http://localhost:8000/location/'+pos.lat+'/'+pos.lng;
 
             infoWindow.setPosition(pos);
-            console.log(pos)
+
             infoWindow.setContent('Konumunuz');
             infoWindow.open(map);
             map.setCenter(pos);
@@ -94,5 +95,6 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3jEE8WsgNy5SCNfMTnTwzSh6P5tN81M&callback=initMap"
         async defer></script>
+
 </body>
 </html>
