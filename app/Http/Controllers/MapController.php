@@ -26,7 +26,7 @@ class MapController extends Controller
             }
         }
       //  dd(floatval($data[1][2]));
-
+        return redirect('/');
     }
 
 

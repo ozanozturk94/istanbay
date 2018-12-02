@@ -22,12 +22,15 @@
             margin: 0;
             padding: 0;
         }
+
     </style>
 </head>
 <body>
+
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 
 <div id="map"></div>
+
 
 <script>
     var customers={!! $agency !!};

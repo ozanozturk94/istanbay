@@ -8,7 +8,8 @@
         /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */
         #map {
-            height: 100%;
+            height: 500px;
+            width: 70%;
         }
         /* Optional: Makes the sample page fill the window. */
         html, body {
@@ -86,11 +87,26 @@
         #target {
             width: 345px;
         }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 <div id="map"></div>
+<a href="/readData" class="button">Ajansları Yükle</a>
+
 <script>
     // This example adds a search box to a map, using the Google Place Autocomplete
     // feature. People can enter geographical searches. The search box will return a
