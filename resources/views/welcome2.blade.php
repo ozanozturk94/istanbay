@@ -9,7 +9,8 @@
          * element that contains the map. */
         #map {
             height: 500px;
-            width: 70%;
+            width: 100%;
+
         }
         /* Optional: Makes the sample page fill the window. */
         html, body {
@@ -33,6 +34,7 @@
 
         #map #infowindow-content {
             display: inline;
+
         }
 
         .pac-card {
@@ -98,6 +100,7 @@
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
+            float: right;
         }
     </style>
 </head>
