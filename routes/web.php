@@ -15,4 +15,6 @@ Route::get('/','HomeController@home');
 
 Route::get('readData', 'MapController@readData');
 
-Route::get('/location/{lat}/{lng}','HomeController@getPlacesWithLocation');
+Route::get('/location/{lat}/{lng}','HomeController@getPlacesWithLocation')->name('location');
+
+Route::post('search','HomeController@returnSearch')->name('search');

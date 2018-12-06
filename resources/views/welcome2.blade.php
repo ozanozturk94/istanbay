@@ -105,12 +105,15 @@
     </style>
 </head>
 <body>
-
-<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+<form action="{{route('search')}}" method="post">
+    @csrf
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box" name="place">
+    <button class="submit">asdas</button>
+</form>
 <div id="map"></div>
 <a href="/readData" class="button">Ajansları Yükle</a>
 
-<script>
+<!-- <script>
     // This example adds a search box to a map, using the Google Place Autocomplete
     // feature. People can enter geographical searches. The search box will return a
     // pick list containing a mix of places and predicted search terms.
@@ -199,8 +202,29 @@
         });
     }
 
+</script> -->
+<script>
+    var userLocation = window.location.pathname.split('/');
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: parseFloat(userLocation[2]), lng: parseFloat(userLocation[3])},
+            zoom: 13,
+            mapTypeId: 'roadmap'
+        });
+
+        var customers={!! $agency !!};
+
+        customers.forEach(function(customer) {
+            var location = {lat : customer['lat'], lng:customer['lng']};
+            var markerX = new google.maps.Marker({
+                title : customer['name'],
+                position : location,
+                map: map
+            })
+        });
+    }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3jEE8WsgNy5SCNfMTnTwzSh6P5tN81M&libraries=places&callback=initAutocomplete"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3jEE8WsgNy5SCNfMTnTwzSh6P5tN81M&callback=initMap"
         async defer></script>
 </body>
 </html>
